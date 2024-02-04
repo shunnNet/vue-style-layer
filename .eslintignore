@@ -6,3 +6,5 @@ package-lock.json
 .husky
 .git
 pnpm-lock.yaml
+
+fixtures
