@@ -1,0 +1,8 @@
+dist
+playground
+example
+node_modules
+package-lock.json
+.husky
+.git
+pnpm-lock.yaml
