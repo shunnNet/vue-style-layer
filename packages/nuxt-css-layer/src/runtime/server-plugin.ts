@@ -1,4 +1,5 @@
 import type { NitroApp } from "nitropack"
+import { useRuntimeConfig } from "#imports"
 
 type NitroPlugin = (nitroApp: NitroApp) => void
 const defineNitroPlugin = (def: NitroPlugin): NitroPlugin => def
