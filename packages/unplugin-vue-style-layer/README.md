@@ -7,7 +7,7 @@ This is a unplugin that can be used to add [CSS layer](https://developer.mozilla
 
 If you are searching for `Nuxt` usages, please use [nuxt-css-layer](https://github.com/shunnNet/vue-style-layer/tree/main/packages/nuxt-css-layer#readme)
 
-## features
+## Features
 - Wrap `.vue` style sections in CSS layer
 
 ## Usage
@@ -62,7 +62,7 @@ will be transformed to
 </style>
 ```
 
-## options
+## Options
 
 ### componentLayer
 You can change layer name in options.
@@ -79,7 +79,7 @@ export default defineConfig({
 ```
 
 ### layerOrder
-Inject layer declaration in style. This may be used to provide context infomation for some css tool like [postcss-cascade-layer][https://www.npmjs.com/package/@csstools/postcss-cascade-layers]
+Inject layer declaration in style. This may be used to provide context infomation for some css tool like [postcss-cascade-layer](https://www.npmjs.com/package/@csstools/postcss-cascade-layers)
 
 ```ts
 export default defineConfig({
@@ -106,7 +106,7 @@ Will result in:
 ```
 
 ## component level layer
-You can also define layer in component level, 這會覆蓋掉在 options 定義的名稱
+You can also define layer name in component level, this will take precedence over settings at the options level.
 
 ```vue
 <!-- Define layer like this -->
