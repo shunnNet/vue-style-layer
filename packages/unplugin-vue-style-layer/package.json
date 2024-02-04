@@ -16,12 +16,16 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx unbuild"
+    "build": "unbuild"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "unbuild": "^2.0.0"
+  },
+  "dependencies": {
+    "defu": "^6.1.4",
+    "unplugin": "^1.6.0"
   }
 }
