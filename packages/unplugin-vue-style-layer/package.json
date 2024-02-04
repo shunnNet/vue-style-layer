@@ -1,8 +1,8 @@
 {
   "name": "unplugin-vue-style-layer",
   "type": "module",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Unplugin for add css layer to vue style",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
@@ -20,7 +20,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "unbuild": "^2.0.0"
   },
