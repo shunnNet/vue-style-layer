@@ -20,7 +20,7 @@
       "require": "./dist/webpack.cjs"
     }
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",

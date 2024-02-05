@@ -5,7 +5,7 @@ import MagicString from "magic-string"
 
 export type VueStyleLayerOptions = {
   componentLayer: string
-  injectOrder: boolean
+  injectOrder: boolean | string[]
   order: string[]
 }
 
@@ -51,8 +51,15 @@ export const unpluginFactory: UnpluginFactory<
         s.prepend(`@layer ${layer} {\n`)
         s.append("\n}")
       }
-      if (_options.injectOrder && globalOrder) {
-        s.prepend(`${globalOrder}\n`)
+      if (_options.injectOrder) {
+        const injectOrder =
+          Array.isArray(_options.injectOrder) && _options.injectOrder.length > 0
+            ? `@layer ${_options.injectOrder.join(",")};`
+            : globalOrder
+
+        if (injectOrder) {
+          s.prepend(`${injectOrder}\n`)
+        }
       }
 
       return s.hasChanged()
