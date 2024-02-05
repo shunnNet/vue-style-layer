@@ -78,7 +78,28 @@ export default defineConfig({
 })
 ```
 
-### layerOrder
+### order
+Prepend css `@layer` declaration in HTML head. This is useful for defining global css layer order;
+
+```ts
+export default defineConfig({
+  plugins: [
+    vue(), 
+    VueStyleLayer.vite(
+      componentLayer: 'component-layer',
+      order: ["component-layer", "uno"],
+    )],
+})
+```
+
+Will prepend the following `<style>` content:
+
+```html
+<style>@layer component-layer,uno;</style>
+```
+
+
+### injectOrder
 Inject layer declaration in style. This may be used to provide context infomation for some css tool like [postcss-cascade-layer](https://www.npmjs.com/package/@csstools/postcss-cascade-layers)
 
 ```ts
@@ -87,7 +108,8 @@ export default defineConfig({
     vue(), 
     VueStyleLayer.vite(
       componentLayer: 'component-layer',
-      layerOrder: ["component-layer", "uno"]
+      order: ["component-layer", "uno"],
+      injectOrder: true
     )],
 })
 ```
