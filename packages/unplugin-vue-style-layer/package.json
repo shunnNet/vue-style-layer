@@ -5,6 +5,7 @@
   "description": "Unplugin for add css layer to vue style",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     }
@@ -20,7 +21,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "unbuild"
   },
-  "keywords": [],
+  "keywords": [
+    "unplugin",
+    "css",
+    "vue",
+    "css-layer",
+    "vite",
+    "webpack"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
