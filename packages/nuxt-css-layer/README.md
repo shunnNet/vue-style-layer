@@ -45,7 +45,7 @@ Will insert the style tag in html head:
 </style>
 ```
 
-You can also customize component layer. For more `styleLayer` option usages, check [unplugin-vue-style-layer](https://github.com/shunnNet/vue-style-layer/tree/main/packages/unplugin-vue-style-layer#readme)
+You can also customize component layer. Check [unplugin-vue-style-layer](https://github.com/shunnNet/vue-style-layer/tree/main/packages/unplugin-vue-style-layer#readme) for more usages.
 
 ```ts
 // nuxt.config.ts
@@ -55,9 +55,8 @@ export default defineNuxtConfig({
   ],
   cssLayer: {
     order: ["components", "uno"],
-    styleLayer: { // use styleLayer to pass options to unplugin-vue-style-layer
-      componentLayer: "components" // default
-    }
+    componentLayer: "components" // default. inject 
+    injectOrder: true // inject order declaration to component styles, default is `false`
   }
 })
 ```
