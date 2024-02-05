@@ -1,6 +1,7 @@
 import { createUnplugin } from "unplugin"
 import type { UnpluginFactory } from "unplugin"
 import defu from "defu"
+import MagicString from "magic-string"
 
 export type VueStyleLayerOptions = {
   componentLayer: string
@@ -44,11 +45,21 @@ const unpluginFactory: UnpluginFactory<
         }
       }
 
-      const layerInjection = layer ? `@layer ${layer} {\n${code}\n}` : code
+      const s = new MagicString(code)
+      if (contextLayerInjection) {
+        s.prepend(`${contextLayerInjection}\n`)
+      }
+      if (layer) {
+        s.prepend(`@layer ${layer} {\n`)
+        s.append("\n}")
+      }
 
-      return `${contextLayerInjection}
-${layerInjection}
-`
+      return s.hasChanged()
+        ? {
+            code: s.toString(),
+            map: s.generateMap(),
+          }
+        : code
     },
   }
 }
