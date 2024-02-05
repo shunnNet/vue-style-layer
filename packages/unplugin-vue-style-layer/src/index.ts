@@ -9,7 +9,7 @@ export type VueStyleLayerOptions = {
   order: string[]
 }
 
-const unpluginFactory: UnpluginFactory<
+export const unpluginFactory: UnpluginFactory<
   Partial<VueStyleLayerOptions> | undefined
 > = (options) => {
   const _options = defu(options, {
