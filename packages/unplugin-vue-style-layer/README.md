@@ -79,6 +79,8 @@ export default defineConfig({
 ```
 
 ### order
+> NOTE: `order` only support vite
+
 Prepend css `@layer` declaration in HTML head. This is useful for defining global css layer order;
 
 ```ts
