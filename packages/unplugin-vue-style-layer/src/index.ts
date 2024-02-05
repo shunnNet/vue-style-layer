@@ -6,6 +6,7 @@ import MagicString from "magic-string"
 export type VueStyleLayerOptions = {
   componentLayer: string
   layerOrder: string[]
+  order: string[]
 }
 
 const unpluginFactory: UnpluginFactory<
@@ -14,6 +15,7 @@ const unpluginFactory: UnpluginFactory<
   const _options = defu(options, {
     componentLayer: "components",
     layerOrder: [],
+    order: [],
   })
   const contextLayerInjection =
     Array.isArray(_options.layerOrder) && _options.layerOrder.length > 0
@@ -60,6 +62,21 @@ const unpluginFactory: UnpluginFactory<
             map: s.generateMap(),
           }
         : code
+    },
+    vite: {
+      transformIndexHtml() {
+        const { order } = _options
+        if (!(Array.isArray(order) && order.length)) {
+          return
+        }
+        return [
+          {
+            tag: "style",
+            children: `@layer ${order.join(",")};`,
+            injectTo: "head-prepend",
+          },
+        ]
+      },
     },
   }
 }
