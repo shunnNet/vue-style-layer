@@ -5,7 +5,7 @@ import MagicString from "magic-string"
 
 export type VueStyleLayerOptions = {
   componentLayer: string
-  layerOrder: string[]
+  injectOrder: boolean
   order: string[]
 }
 
@@ -14,13 +14,12 @@ const unpluginFactory: UnpluginFactory<
 > = (options) => {
   const _options = defu(options, {
     componentLayer: "components",
-    layerOrder: [],
+    injectOrder: false,
     order: [],
   })
-  const contextLayerInjection =
-    Array.isArray(_options.layerOrder) && _options.layerOrder.length > 0
-      ? `@layer ${_options.layerOrder.join(", ")};`
-      : ""
+  const { order } = _options
+  const globalOrder =
+    Array.isArray(order) && order.length > 0 ? `@layer ${order.join(",")};` : ""
 
   return {
     name: "vue-style-layer",
@@ -48,12 +47,12 @@ const unpluginFactory: UnpluginFactory<
       }
 
       const s = new MagicString(code)
-      if (contextLayerInjection) {
-        s.prepend(`${contextLayerInjection}\n`)
-      }
       if (layer) {
         s.prepend(`@layer ${layer} {\n`)
         s.append("\n}")
+      }
+      if (_options.injectOrder && globalOrder) {
+        s.prepend(`${globalOrder}\n`)
       }
 
       return s.hasChanged()
@@ -65,14 +64,13 @@ const unpluginFactory: UnpluginFactory<
     },
     vite: {
       transformIndexHtml() {
-        const { order } = _options
-        if (!(Array.isArray(order) && order.length)) {
+        if (!globalOrder) {
           return
         }
         return [
           {
             tag: "style",
-            children: `@layer ${order.join(",")};`,
+            children: globalOrder,
             injectTo: "head-prepend",
           },
         ]
