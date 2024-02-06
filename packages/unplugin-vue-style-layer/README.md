@@ -29,13 +29,14 @@ pnpm add -D unplugin-css-layer
 // vite.config.ts
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import VueStyleLayer from 'unplugin-vue-style-layer'
+import VueStyleLayer from 'unplugin-vue-style-layer/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(), 
-    VueStyleLayer.vite(
+    // ! Must place after vue()
+    VueStyleLayer(
       // options
     )],
 })
@@ -74,7 +75,7 @@ You can change layer name in options.
 export default defineConfig({
   plugins: [
     vue(), 
-    VueStyleLayer.vite(
+    VueStyleLayer(
       componentLayer: 'component-layer',
     )],
 })
@@ -89,7 +90,7 @@ Prepend css `@layer` declaration in HTML head. This is useful for defining globa
 export default defineConfig({
   plugins: [
     vue(), 
-    VueStyleLayer.vite(
+    VueStyleLayer(
       componentLayer: 'component-layer',
       order: ["component-layer", "uno"],
     )],
@@ -110,7 +111,7 @@ Inject layer declaration in style. This may be used to provide context infomatio
 export default defineConfig({
   plugins: [
     vue(), 
-    VueStyleLayer.vite(
+    VueStyleLayer(
       componentLayer: 'component-layer',
       order: ["component-layer", "uno"],
       injectOrder: true

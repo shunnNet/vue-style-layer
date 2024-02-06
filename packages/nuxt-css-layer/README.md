@@ -57,7 +57,7 @@ export default defineNuxtConfig({
   ],
   cssLayer: {
     order: ["components", "uno"],
-    componentLayer: "components" // default. inject 
+    componentLayer: "components", // default. inject 
     injectOrder: true // inject order declaration to component styles, default is `false`
   }
 })
