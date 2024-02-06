@@ -19,6 +19,14 @@
     "LICENSE",
     "README.md"
   ],
+  "keywords": [
+    "nuxt-module",
+    "nuxt",
+    "css",
+    "vue",
+    "css-layer",
+    "vite"
+  ],
   "scripts": {
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
