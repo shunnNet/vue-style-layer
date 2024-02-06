@@ -7,6 +7,8 @@ This is a unplugin that can be used to add [CSS layer](https://developer.mozilla
 
 If you are searching for `Nuxt` usages, please use [nuxt-css-layer](https://github.com/shunnNet/vue-style-layer/tree/main/packages/nuxt-css-layer#readme)
 
+> Current only support `Vite`.
+
 ## Features
 - Wrap `.vue` style sections in CSS layer
 

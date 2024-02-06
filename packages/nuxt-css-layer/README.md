@@ -6,6 +6,8 @@
 
 This is a Nuxt module that can be used to control [CSS layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer).
 
+> Only support `Vite` mode currently.
+
 ## features
 - Declare CSS `@layer` at top of HTML head
 - Wrap `.vue` style sections in CSS layer (Using [unplugin-vue-style-layer](https://github.com/shunnNet/vue-style-layer/tree/main/packages/unplugin-vue-style-layer#readme))

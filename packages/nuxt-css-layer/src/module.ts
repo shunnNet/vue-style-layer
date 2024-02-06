@@ -6,7 +6,7 @@ import {
   addWebpackPlugin,
 } from "@nuxt/kit"
 import VueStyleLayerVite from "unplugin-vue-style-layer/vite"
-import VueStyleLayerWebpack from "unplugin-vue-style-layer/webpack"
+// import VueStyleLayerWebpack from "unplugin-vue-style-layer/webpack"
 import defu from "defu"
 
 // Module options TypeScript interface definition
@@ -43,7 +43,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
     addServerPlugin(resolver.resolve("./runtime/server-plugin"))
     addVitePlugin(VueStyleLayerVite(pluginOptions))
-    addWebpackPlugin(VueStyleLayerWebpack(pluginOptions))
+    // addWebpackPlugin(VueStyleLayerWebpack(pluginOptions))
 
     nuxt.options.runtimeConfig.cssLayer = { order: _options.order }
   },
