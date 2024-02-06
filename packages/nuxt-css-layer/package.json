@@ -1,6 +1,6 @@
 {
   "name": "nuxt-css-layer",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Nuxt module to add CSS layer to your Nuxt app",
   "repository": "https://github.com/shunnNet/vue-style-layer",
   "license": "MIT",
