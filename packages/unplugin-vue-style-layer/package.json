@@ -1,8 +1,9 @@
 {
   "name": "unplugin-vue-style-layer",
   "type": "module",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Unplugin for add css layer to vue style",
+  "repository": "https://github.com/shunnNet/vue-style-layer",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -36,8 +37,7 @@
     "css",
     "vue",
     "css-layer",
-    "vite",
-    "webpack"
+    "vite"
   ],
   "author": "",
   "license": "MIT",
